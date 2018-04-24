@@ -1,6 +1,7 @@
 # modul-318-Student
 
-Students!
-Fork this repository to your own Github account. Work there with this repository. The intructor will clone your repo for inspection and evaluation.
+Die Dokumentation über dieses Projekt finden Sie im Ordner Dokumentation.
 
-Have Fun!
+# installation
+
+Laden Sie sich das Projekt im Zip-Format runter und installieren Sie die Applikation nach der Anleitung in der Dokumentation auf der Seite 11.
