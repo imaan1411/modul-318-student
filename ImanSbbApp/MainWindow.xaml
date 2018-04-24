@@ -8,43 +8,43 @@
         Title="Fahrplan" Height="450" Width="800" MinWidth="850" MinHeight="500">
     <TabControl>
         <TabItem Header="Fahrplan">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="3*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            
-            <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center">
-                <TextBlock FontSize="25" HorizontalAlignment="Center" Text="Fahrplan" FlowDirection="LeftToRight"/>
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Row="1" Orientation="Vertical">
-                                <TextBlock FontSize="15" Margin="10" Grid.Row="0" Text="Von" Height="20" />
-                                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                                    <ComboBox GotFocus="comboBoxFrom_GotFocus" 
+                <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center">
+                    <TextBlock FontSize="25" HorizontalAlignment="Center" Text="Fahrplan" FlowDirection="LeftToRight"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Vertical">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Row="1" Orientation="Vertical">
+                                    <TextBlock FontSize="15" Margin="10" Grid.Row="0" Text="Von" Height="20" />
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                        <ComboBox GotFocus="comboBoxFrom_GotFocus" 
                                             KeyUp="comboBoxFrom_KeyUp"
                                             Width="180" 
                                             Margin="10 10 5 10" 
@@ -52,47 +52,47 @@
                                             StaysOpenOnEdit="True"
                                             x:Name="comboBoxFrom" 
                                             TabIndex="0">
-                                    </ComboBox>
-                            </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
+                                        </ComboBox>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
 
-                    <StackPanel x:Name="stackPanelSearchConnection" Grid.Column="1" VerticalAlignment="Bottom">
-                        <Button Click="btnSearchConnection_Click" 
+                        <StackPanel x:Name="stackPanelSearchConnection" Grid.Column="1" VerticalAlignment="Bottom">
+                            <Button Click="btnSearchConnection_Click" 
                                 Background="LightYellow" 
                                 x:Name="btnSearchConnection"  
                                 Width="200" 
                                 TabIndex="2"
                                 Content="Verbindung suchen"/>
-                    </StackPanel>
+                        </StackPanel>
 
-                    <StackPanel Grid.Column="2">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Row="1" Orientation="Vertical">
-                                <TextBlock FontSize="15" Margin="10" Grid.Row="0" Text="Nach" Height="20" />
-                                <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.Column="0">
-                                    <ComboBox x:Name="comboBoxTo" 
+                        <StackPanel Grid.Column="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Row="1" Orientation="Vertical">
+                                    <TextBlock FontSize="15" Margin="10" Grid.Row="0" Text="Nach" Height="20" />
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.Column="0">
+                                        <ComboBox x:Name="comboBoxTo" 
                                             Width="180" 
                                             Margin="10 10 5 10" 
                                             IsEditable="True"
                                             GotFocus="comboBoxTo_GotFocus"
                                             KeyUp="comboBoxTo_KeyUp" 
                                             TabIndex="1">
-                                    </ComboBox>
+                                        </ComboBox>
+                                    </StackPanel>
                                 </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
 
                 <ListView Grid.Row="2" 
                           ScrollViewer.VerticalScrollBarVisibility="Visible" 
@@ -111,9 +111,9 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-        </Grid>
+            </Grid>
         </TabItem>
-        
+
         <TabItem Header="Abfahrtstafel">
             <Grid>
                 <Grid.RowDefinitions>
@@ -161,21 +161,21 @@
                     </Grid>
                 </StackPanel>
 
-                    <ListView Grid.Row="2" 
+                <ListView Grid.Row="2" 
                               ScrollViewer.VerticalScrollBarVisibility="Visible" 
                               ScrollViewer.CanContentScroll="False" 
                               x:Name="listViewConn" 
                               ItemsSource="{Binding Board}">
-                        <ListView.View>
-                            <GridView x:Name="gridViewConn" AllowsColumnReorder="true">
-                                <GridView.Columns>
-                                    <GridViewColumn Width="180" Header="Abfahrt" DisplayMemberBinding="{Binding Path=Departure}" />
-                                    <GridViewColumn Width="180" Header="Nach" DisplayMemberBinding="{Binding Path=To}"/>
-                                    <GridViewColumn Width="180" Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
-                                </GridView.Columns>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <ListView.View>
+                        <GridView x:Name="gridViewConn" AllowsColumnReorder="true">
+                            <GridView.Columns>
+                                <GridViewColumn Width="180" Header="Abfahrt" DisplayMemberBinding="{Binding Path=Departure}" />
+                                <GridViewColumn Width="180" Header="Nach" DisplayMemberBinding="{Binding Path=To}"/>
+                                <GridViewColumn Width="180" Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
         </TabItem>
     </TabControl>

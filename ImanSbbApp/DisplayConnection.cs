@@ -57,7 +57,6 @@ namespace ImanSbbApp
             }
         }
 
-
         public string Platform
         {
             get

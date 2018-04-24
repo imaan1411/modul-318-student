@@ -30,13 +30,20 @@ namespace ImanSbbApp
             ITransport it = new Transport();
             if (!string.IsNullOrEmpty(comboBox.Text))
             {
-                List<Station> stations = it.GetStations(comboBox.Text).StationList;
-                if (stations.Count > 0)
+                try
                 {
-                    foreach (Station s in stations)
+                    List<Station> stations = it.GetStations(comboBox.Text).StationList;
+                    if (stations.Count > 0)
                     {
-                        comboBox.Items.Add(s.Name.ToString());
+                        foreach (Station s in stations)
+                        {
+                            comboBox.Items.Add(s.Name.ToString());
+                        }
                     }
+                }
+                catch
+                {
+                    //do Nothing
                 }
             }
         }
@@ -68,16 +75,23 @@ namespace ImanSbbApp
 
         private void btnSearchConnection_Click(object sender, RoutedEventArgs e)
         {
-            SwissTransport.Transport t = new SwissTransport.Transport();
-
-            string From = comboBoxFrom.Text;
-            string To = comboBoxTo.Text;
-
-            List<SwissTransport.Connection> searchResConnections = t.GetConnections(From, To).ConnectionList;
-            foreach (SwissTransport.Connection c in searchResConnections)
+            try
             {
-                DisplayConnection dp = new DisplayConnection(c.To.Arrival, c.From.Departure, c.Duration, c.From.Platform);
-                viewModel.Connections.Add(dp);
+                SwissTransport.Transport t = new SwissTransport.Transport();
+
+                string From = comboBoxFrom.Text;
+                string To = comboBoxTo.Text;
+
+                List<SwissTransport.Connection> searchResConnections = t.GetConnections(From, To).ConnectionList;
+                foreach (SwissTransport.Connection c in searchResConnections)
+                {
+                    DisplayConnection dp = new DisplayConnection(c.To.Arrival, c.From.Departure, c.Duration, c.From.Platform);
+                    viewModel.Connections.Add(dp);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Stelle eine funktionierende Internetverbindung her.");
             }
         }
 
@@ -93,26 +107,33 @@ namespace ImanSbbApp
 
         private void btnSearchStationConnections_Click(object sender, RoutedEventArgs e)
         {
-            ITransport t = new Transport();
+            try
+            {
+                ITransport t = new Transport();
 
-            if (!string.IsNullOrEmpty(comboBoxStation.Text))
-            {         
-                List<Station> st = t.GetStations(comboBoxStation.Text).StationList;
-
-                if(st.Count > 0)
+                if (!string.IsNullOrEmpty(comboBoxStation.Text))
                 {
-                    foreach (Station s in st)
-                    {
-                        StationBoardRoot sbr = t.GetStationBoard(s.Name, s.Id);
-                        List<StationBoard> sb = sbr.Entries;
+                    List<Station> st = t.GetStations(comboBoxStation.Text).StationList;
 
-                        foreach (StationBoard bb in sb)
+                    if (st.Count > 0)
+                    {
+                        foreach (Station s in st)
                         {
-                            DisplayBoard displayBoard = new DisplayBoard(bb.Name, bb.To, bb.Stop.Departure.ToString());
-                            viewModel.Board.Add(displayBoard);
+                            StationBoardRoot sbr = t.GetStationBoard(s.Name, s.Id);
+                            List<StationBoard> sb = sbr.Entries;
+
+                            foreach (StationBoard bb in sb)
+                            {
+                                DisplayBoard displayBoard = new DisplayBoard(bb.Name, bb.To, bb.Stop.Departure.ToString());
+                                viewModel.Board.Add(displayBoard);
+                            }
                         }
                     }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Stelle eine funktionierende Internetverbindung her.");
             }
         }
     }

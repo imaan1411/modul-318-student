@@ -23,6 +23,7 @@ namespace ImanSbbApp
                 name = value;
             }
         }
+
         public string Departure
         {
             get
@@ -34,6 +35,7 @@ namespace ImanSbbApp
                 departure = value;
             }
         }
+
         public string To
         {
             get
@@ -45,6 +47,7 @@ namespace ImanSbbApp
                 to = value;
             }
         }
+
         public DisplayBoard(string Name, string To, string Departure)
         {
             name = Name;
