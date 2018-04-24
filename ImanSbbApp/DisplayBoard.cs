@@ -45,7 +45,6 @@ namespace ImanSbbApp
                 to = value;
             }
         }
-
         public DisplayBoard(string Name, string To, string Departure)
         {
             name = Name;
@@ -53,5 +52,4 @@ namespace ImanSbbApp
             departure = Departure;
         }
     }
-
 }

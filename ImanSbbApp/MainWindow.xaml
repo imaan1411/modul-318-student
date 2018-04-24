@@ -156,7 +156,8 @@
                                 Height="22.4" 
                                 Grid.Column="2" 
                                 Content="Suchen" 
-                                Width="100"/>
+                                Width="100"
+                                IsDefault="True"/>
                     </Grid>
                 </StackPanel>
 

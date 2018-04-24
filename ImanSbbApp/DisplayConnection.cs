@@ -10,9 +10,16 @@ namespace ImanSbbApp
     {
         private string arrival;
         private string departure;
-        private string date;
         private string time;
         private string platform;
+
+        public DisplayConnection(string Arrival, string Departure, string Time, string Platform)
+        {
+            arrival = getFormattedDate(Arrival);
+            departure = getFormattedDate(Departure);
+            time = getFormattedTime(Time);
+            platform = Platform;
+        }
 
         public string Arrival
         {
@@ -20,11 +27,10 @@ namespace ImanSbbApp
             {
                 return arrival;
             }
-            set
+            private set
             {
-                arrival = String.Format("{0:HH:mm:ss}", value);               
+                arrival = value;
             }
-
         }
 
         public string Departure
@@ -33,30 +39,19 @@ namespace ImanSbbApp
             {
                 return departure; 
             }
-            set
+            private set
             {
                 departure = value; 
             }
         }
 
-        public string Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
-        }
         public string Time
         {
             get
             {                
-                return String.Format("{0:dd.MM.yyyy HH:mm:ss}", time);
+                return time;
             }
-            set
+            private set
             {
                 time = value;
             }
@@ -69,18 +64,23 @@ namespace ImanSbbApp
             {
                 return platform;
             }
-            set
+            private set
             {
                 platform = value;
             }
         }
 
-        public DisplayConnection(string Arrival, string Departure, string Time, string Platform)
+        private string getFormattedDate(string val)
         {
-            arrival = Arrival;
-            departure = Departure;
-            time = Time;
-            platform = Platform;
+            DateTime d = new DateTime();
+            DateTime.TryParse(val, out d);
+
+            return d.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private string getFormattedTime(string time)
+        {
+            return time.Split('d')[1];
         }
     }
 }

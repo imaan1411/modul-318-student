@@ -39,7 +39,6 @@ namespace ImanSbbApp
                     }
                 }
             }
-
         }
 
         private void setFocusDropdownOpen(ComboBox comboBox)
